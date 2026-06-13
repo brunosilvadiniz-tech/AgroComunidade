@@ -1,334 +1,313 @@
+/* ==========================================================================
+   PALETA DE CORES PRINCIPAL
+   Verde: #2e7d32 (Identidade da terra e agricultura)
+   Azul: #1565c0 (Comércio e confiança)
+   Dourado: #f9a825 (Riqueza, sol e colheita)
+   Branco: #ffffff (Limpeza e legibilidade)
+   ========================================================================== */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #ffffff; /* Branco */
-  color: #333333;
-  line-height: 1.6;
+    background-color: #f4f6f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* --- CABEÇALHO E MENU (Azul, Branco e Dourado) --- */
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
 header {
-  background-color: #1d3557; /* Azul Escuro */
-  border-bottom: 4px solid #d4af37; /* Dourado */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.interface-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.logo-agro {
-  color: #ffffff; /* Branco */
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+.logo h1 {
+    font-size: 1.8rem;
+    color: #f9a825;
 }
 
-.logo-agro span {
-  color: #d4af37; /* Dourado */
+.logo span {
+    color: #ffffff;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.8rem;
+    display: flex;
+    list-style: none;
 }
 
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  cursor: pointer;
-  padding-bottom: 5px;
+nav ul li {
+    margin-left: 2rem;
 }
 
-nav a:hover, nav a.active {
-  color: #d4af37;
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    cursor: pointer;
 }
 
-/* --- LOGICA INTERATIVA DE ABAS (JavaScript) --- */
-.aba-conteudo {
-  display: none; /* Escondido por padrão */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3.5rem 2rem;
-  animation: transicaoSuave 0.4s ease-out forwards;
+nav ul li a:hover, 
+nav ul li a.active {
+    color: #f9a825;
 }
 
-.aba-conteudo.active {
-  display: block; /* Revela apenas o item ativo */
+/* --- ESTRUTURA DAS PÁGINAS --- */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: 70vh;
 }
 
-@keyframes transicaoSuave {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.page-section {
+    display: none; /* Controlado via JavaScript para alternar abas */
 }
 
-/* --- ESTILIZAÇÃO DE TEXTOS PRINCIPAIS (Verde) --- */
-h2 {
-  color: #1b4332; /* Verde Escuro */
-  font-size: 2.3rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
+.page-section.active-page {
+    display: block;
 }
 
-.descricao-pagina {
-  text-align: center;
-  color: #666666;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
+/* --- BANNER PRINCIPAL (HERO) --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
-/* --- SEÇÃO HOME: BANNER HERO --- */
-.banner-principal {
-  background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(27, 67, 50, 0.85)), 
-              url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') center/cover;
-  color: #ffffff;
-  text-align: center;
-  padding: 6rem 2rem;
-  border-radius: 12px;
-  margin-bottom: 4rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f9a825;
 }
 
-.banner-principal h1 {
-  font-size: 3rem;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
+/* --- VITRINE DE PRODUTOS --- */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.banner-principal p {
-  font-size: 1.2rem;
-  max-width: 850px;
-  margin: 0 auto 2.5rem auto;
-  opacity: 0.95;
+.card-produto {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-top: 4px solid #1565c0;
+    transition: transform 0.3s;
 }
 
-/* --- BOTÕES MODERNIZADOS --- */
-.botao-principal {
-  background-color: #d4af37; /* Dourado */
-  color: #1d3557; /* Azul */
-  font-weight: 700;
-  padding: 0.9rem 2.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.card-produto:hover {
+    transform: translateY(-5px);
 }
 
-.botao-principal:hover {
-  background-color: #e5c158;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.card-produto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.botao-principal:active {
-  transform: translateY(-1px);
+.card-conteudo {
+    padding: 1.5rem;
 }
 
-/* --- CARDS DE PRODUTOS/AÇÕES (GRID CORRIGIDO) --- */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 2rem;
+.card-conteudo h3 {
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
 }
 
-.card-informativo {
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border: 1px solid #eaeaea;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column; /* Faz o botão ou texto alinhar embaixo por igual */
+.preco {
+    color: #1565c0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
 }
 
-.card-informativo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+.btn-comprar {
+    background-color: #f9a825;
+    color: #333;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
 }
 
-.imagem-card {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; /* Impede a imagem de distorcer */
+.btn-comprar:hover {
+    background-color: #e69516;
 }
 
-.card-texto {
-  padding: 1.8rem;
-  flex-grow: 1; /* Garante que todos os cards fiquem com a mesma altura */
+/* --- FORMULÁRIOS (CONTATOS E USUÁRIO) --- */
+.form-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid #2e7d32;
 }
 
-.card-texto h3 {
-  color: #1d3557; /* Azul */
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
+.form-container h2 {
+    color: #2e7d32;
+    margin-bottom: 1.5rem;
 }
 
-.card-texto p {
-  color: #555555;
-  font-size: 0.95rem;
+.form-group {
+    margin-bottom: 1.2rem;
 }
 
-/* --- SEÇÃO USUÁRIOS / MEMBROS (Mural Corrigido) --- */
-.membros-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-.card-usuario {
-  background: #ffffff;
-  border-top: 5px solid #2d6a4f; /* Verde */
-  padding: 3rem 1.5rem 2.5rem 1.5rem;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-.card-usuario:hover {
-  transform: scale(1.02);
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1565c0;
 }
 
-.foto-perfil {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #d4af37; /* Dourado */
-  margin: 0 auto 1.2rem auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.btn-enviar {
+    background-color: #1565c0;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
 }
 
-.card-usuario h3 {
-  color: #1d3557;
-  font-size: 1.3rem;
+.btn-enviar:hover {
+    background-color: #0d47a1;
 }
 
-.etiqueta-funcao {
-  display: inline-block;
-  background-color: #e8f5e9; /* Fundo Verde Claro */
-  color: #1b4332;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.3rem 1.2rem;
-  border-radius: 20px;
-  margin: 0.6rem 0 1.2rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* --- WIDGET DO CHAT DA IA --- */
+.ia-chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    border: 2px solid #2e7d32;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
 }
 
-.card-usuario p {
-  color: #555555;
-  font-style: italic;
-  font-size: 0.95rem;
+.ia-header {
+    background: #2e7d32;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* --- SEÇÃO CONTATO E FORMULÁRIO COMPLETO --- */
-.bloco-contato {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  background-color: #f8f9fa; /* Cinza claro para contraste */
-  padding: 3.5rem;
-  border-radius: 12px;
-  border: 1px solid #eee;
+.ia-header span {
+    font-size: 0.8rem;
+    background: #f9a825;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
-.info-ficticia {
-  flex: 1;
-  min-width: 280px;
+.ia-messages {
+    height: 250px;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.info-ficticia h3 {
-  color: #1b4332; /* Verde */
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  border-bottom: 2px solid #d4af37;
-  padding-bottom: 0.5rem;
-  display: inline-block;
+.msg {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    max-width: 80%;
+    font-size: 0.9rem;
 }
 
-.info-ficticia p {
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  color: #444444;
+.msg.ia {
+    background: #e8f5e9;
+    color: #2e7d32;
+    align-self: flex-start;
 }
 
-.formulario-contato {
-  flex: 2;
-  min-width: 300px;
+.msg.user {
+    background: #e3f2fd;
+    color: #1565c0;
+    align-self: flex-end;
 }
 
-.campo-item {
-  margin-bottom: 1.5rem;
+.ia-input-area {
+    display: flex;
+    border-top: 1px solid #eee;
 }
 
-.campo-item label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #1d3557; /* Azul */
-  font-size: 0.95rem;
+.ia-input-area input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
 }
 
-.campo-item input, .campo-item textarea {
-  width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  outline: none;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.campo-item input:focus, .campo-item textarea:focus {
-  border-color: #1b4332; /* Verde */
-  box-shadow: 0 0 6px rgba(27, 67, 50, 0.25);
+.ia-input-area button {
+    background: #f9a825;
+    border: none;
+    padding: 0 1rem;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* --- RODAPÉ --- */
 footer {
-  background-color: #1d3557; /* Azul */
-  color: #ffffff;
-  text-align: center;
-  padding: 2.5rem 2rem;
-  margin-top: 6rem;
-  border-top: 4px solid #1b4332; /* Verde */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border-top: 5px solid #f9a825;
 }
-
-footer p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.paleta-cores {
-  margin-top: 0.8rem;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-.cor-v { color: #52b788; font-weight: bold; }
-.cor-a { color: #a8dadc; font-weight: bold; }
-.cor-b { color: #ffffff; font-weight: bold;}
-.cor-d { color: #d4af37; font-weight: bold; }

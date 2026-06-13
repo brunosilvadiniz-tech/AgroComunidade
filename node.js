@@ -1,62 +1,69 @@
-/**
- * NAVEGAÇÃO ENTRE ABAS INTERATIVAS (SPA)
- * Troca o conteúdo dinamicamente sem recarregar a visualização do CodePen.
- */
-function mudarAba(idAlvo) {
-  // 1. Localiza e oculta todas as páginas
-  const todasAbas = document.querySelectorAll('.aba-conteudo');
-  todasAbas.forEach(aba => {
-    aba.classList.remove('active');
-  });
 
-  // 2. Remove o destaque visual dos botões do menu
-  const itensMenu = document.querySelectorAll('nav a');
-  itensMenu.forEach(item => {
-    item.classList.remove('active');
-  });
+function mudarPagina(idPagina) {
+    // Seleciona todas as seções de página do site
+    const secoes = document.querySelectorAll('.page-section');
+    secoes.forEach(secao => {
+        secao.classList.remove('active-page');
+    });
 
-  // 3. Exibe a página clicada e adiciona destaque ao link correspondente (com checagem de segurança)
-  const abaAlvo = document.getElementById(idAlvo);
-  const menuAlvo = document.getElementById('menu-' + idAlvo);
+    // Seleciona todos os links de navegação do menu
+    const links = document.querySelectorAll('nav ul li a');
+    links.forEach(link => {
+        link.classList.remove('active');
+    });
 
-  if (abaAlvo) {
-    abaAlvo.classList.add('active');
-  } else {
-    console.error(Erro: A página com o ID "${idAlvo}" não foi encontrada no HTML.);
-  }
-
-  if (menuAlvo) {
-    menuAlvo.classList.add('active');
-  }
-
-  // 4. Executa uma rolagem suave até o topo da tela
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Ativa a seção correspondente e destaca o botão no menu superior
+    document.getElementById(idPagina).classList.add('active-page');
+    document.getElementById('nav-' + idPagina).classList.add('active');
 }
 
 /**
- * INTERATIVIDADE DE ENVIO DE FORMULÁRIO
- * Processa localmente o formulário de contato com respostas personalizadas.
+ * 2. SIMULAÇÃO DE COMPRA NO COMÉRCIO SOCIAL
+ * Executada ao clicar no botão de adicionar ao carrinho.
+ * @param {string} nomeProduto - Nome do item agrícola selecionado
  */
-function enviarDados(event) {
-  // Impede o comportamento padrão de atualização de página
-  event.preventDefault(); 
-  
-  // Resgata os elementos do HTML com segurança
-  const campoNome = document.getElementById('nome');
-  const campoEmail = document.getElementById('email');
-  const formulario = document.getElementById('meuFormulario');
-
-  // Verifica se os campos realmente existem antes de pegar o valor (.value)
-  if (campoNome && campoEmail) {
-    const nomeCompleto = campoNome.value;
-    const emailFornecido = campoEmail.value;
-
-    // Renderiza caixa de feedback customizada em tela
-    alert(Obrigado pelo contato, ${nomeCompleto}!\nSeus dados foram validados com sucesso.\nUma resposta simulada foi direcionada para o e-mail: ${emailFornecido}.);
-  }
-
-  // Limpa os dados preenchidos no formulário se ele existir
-  if (formulario) {
-    formulario.reset();
-  }
+function comprarProduto(nomeProduto) {
+    alert(`🛒 Excelente escolha! O produto "${nomeProduto}" foi adicionado ao seu carrinho com sucesso.`);
 }
+
+/**
+ * 3. PROCESSAMENTO DO FORMULÁRIO DE USUÁRIO
+ * Captura os dados de cadastro de produtores ou compradores.
+ */
+function salvarUsuario(event) {
+    // Evita que a página seja recarregada ao enviar o formulário
+    event.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const tipo = document.getElementById('tipo').value;
+    
+    alert(`Sucesso! Perfil de ${tipo} (${nome}) foi cadastrado com sucesso na nossa comunidade agrícola.`);
+    
+    // Limpa os campos do formulário após o sucesso
+    document.getElementById('formUsuario').reset();
+}
+
+/**
+ * 4. PROCESSAMENTO DO FORMULÁRIO DE CONTATO
+ * Envia a mensagem do usuário para a administração do projeto social.
+ */
+function enviarContato(event) {
+    event.preventDefault();
+    
+    alert("Obrigado pela sua mensagem! Nossa equipe administrativa entrará em contato em até 24 horas.");
+    
+    document.getElementById('formContato').reset();
+}
+
+/**
+ * 5. ASSISTENTE DE INTELIGÊNCIA ARTIFICIAL (CHATBOT)
+ * Analisa as palavras-chave digitadas e gera respostas dinâmicas no chat.
+ */
+function perguntarIA() {
+    const inputField = document.getElementById('iaInput');
+    const pergunta = inputField.value.trim().toLowerCase();
+    
+    // Se o campo estiver vazio, não faz nada
+    if (!pergunta) return;
+
+    const chatBox = document.getElementById('chatIARespostas');
