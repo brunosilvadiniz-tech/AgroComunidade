@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #ffffff; /* Branco */
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* --- HEADER E NAVEGAÇÃO (Azul, Branco e Dourado) --- */
+header {
+  background-color: #1d3557; /* Azul Escuro */
+  border-bottom: 4px solid #d4af37; /* Dourado */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.interface-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+}
+
+.logo-agro {
+  color: #ffffff; /* Branco */
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo-agro span {
+  color: #d4af37; /* Dourado */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  color: #d4af37;
+}
+
+/* --- LOGIC INTERATIVA DE ABAS --- */
+.aba-conteudo {
+  display: none; /* Escondido por padrão */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  animation: transicaoSuave 0.4s ease forwards;
+}
+
+.aba-conteudo.active {
+  display: block; /* Revela apenas o item ativo */
+}
+
+@keyframes transicaoSuave {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ESTILIZAÇÃO DE TEXTOS PRINCIPAIS --- */
+h2 {
+  color: #1b4332; /* Verde Escuro */
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.descricao-pagina {
+  text-align: center;
+  color: #666666;
+  margin-bottom: 3rem;
+}
+
+/* --- SEÇÃO HOME: BANNER HERO --- */
+.banner-principal {
+  background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(27, 67, 50, 0.85)), 
+              url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') center/cover;
+  color: #ffffff;
+  text-align: center;
+  padding: 5.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.banner-principal h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.banner-principal p {
+  font-size: 1.15rem;
+  max-width: 850px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* --- BOTÕES --- */
+.botao-principal {
+  background-color: #d4af37; /* Dourado */
+  color: #1d3557; /* Azul */
+  font-weight: 700;
+  padding: 0.8rem 2.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-principal:hover {
+  background-color: #e5c158;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- SEÇÃO CARDS (GRID) --- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card-informativo {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease;
+}
+
+.card-informativo:hover {
+  transform: translateY(-5px);
+}
+
+.imagem-card {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.card-texto {
+  padding: 1.5rem;
+}
+
+.card-texto h3 {
+  color: #1d3557; /* Azul */
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+}
+
+/* --- SEÇÃO USUÁRIOS / MEMBROS --- */
+.membros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card-usuario {
+  background: #ffffff;
+  border-top: 5px solid #2d6a4f; /* Verde */
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.foto-perfil {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #d4af37; /* Dourado */
+  margin-bottom: 1rem;
+}
+
+.card-usuario h3 {
+  color: #1d3557;
+  font-size: 1.25rem;
+}
+
+.etiqueta-funcao {
+  display: inline-block;
+  background-color: #e8f5e9; /* Fundo Verde Claro */
+  color: #1b4332;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  margin: 0.5rem 0 1.2rem 0;
+}
+
+/* --- SEÇÃO CONTATO --- */
+.bloco-contato {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background-color: #f8f9fa;
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.info-ficticia {
+  flex: 1;
+  min-width: 280px;
+}
+
+.info-ficticia h3 {
+  color: #1b4332; /* Verde */
+  margin-bottom: 1.2rem;
+}
+
+.info-ficticia p {
+  margin-bottom: 0.9rem;
+}
+
+.formulario-contato {
+  flex: 2;
+  min-width: 300px;
+}
+
+.campo-item {
+  margin-bottom: 1.3rem;
+}
+
+.campo-item label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #1d3557;
+}
+
+.campo-item input, .campo-item textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.campo-item input:focus, .campo-item textarea:focus {
+  border-color: #1b4332;
+  box-shadow: 0 0 5px rgba(27, 67, 50, 0.25);
+}
+
+/* --- RODAPÉ --- */
+footer {
+  background-color: #1d3557;
+  color: #ffffff;
+  text-align: center;
+  padding: 2.5rem;
+  margin-top: 5rem;
+  border-top: 4px solid #1b4332;
+}
+
+.paleta-cores {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.cor-v { color: #2d6a4f; font-weight: bold; }
+.cor-a { color: #3a86c8; font-weight: bold; }
+.cor-b { color: #ffffff; }
+.cor-d { color: #d4af37; font-weight: bold; }
