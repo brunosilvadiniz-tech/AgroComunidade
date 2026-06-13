@@ -11,13 +11,14 @@ body {
   line-height: 1.6;
 }
 
-/* --- HEADER E NAVEGAÇÃO (Azul, Branco e Dourado) --- */
+/* --- CABEÇALHO E MENU (Azul, Branco e Dourado) --- */
 header {
   background-color: #1d3557; /* Azul Escuro */
   border-bottom: 4px solid #d4af37; /* Dourado */
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .interface-container {
@@ -51,21 +52,22 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
   cursor: pointer;
+  padding-bottom: 5px;
 }
 
 nav a:hover, nav a.active {
   color: #d4af37;
 }
 
-/* --- LOGIC INTERATIVA DE ABAS --- */
+/* --- LOGICA INTERATIVA DE ABAS (JavaScript) --- */
 .aba-conteudo {
   display: none; /* Escondido por padrão */
   max-width: 1200px;
   margin: 0 auto;
   padding: 3.5rem 2rem;
-  animation: transicaoSuave 0.4s ease forwards;
+  animation: transicaoSuave 0.4s ease-out forwards;
 }
 
 .aba-conteudo.active {
@@ -77,7 +79,7 @@ nav a:hover, nav a.active {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- ESTILIZAÇÃO DE TEXTOS PRINCIPAIS --- */
+/* --- ESTILIZAÇÃO DE TEXTOS PRINCIPAIS (Verde) --- */
 h2 {
   color: #1b4332; /* Verde Escuro */
   font-size: 2.3rem;
@@ -89,6 +91,7 @@ h2 {
   text-align: center;
   color: #666666;
   margin-bottom: 3rem;
+  font-size: 1.1rem;
 }
 
 /* --- SEÇÃO HOME: BANNER HERO --- */
@@ -97,105 +100,129 @@ h2 {
               url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') center/cover;
   color: #ffffff;
   text-align: center;
-  padding: 5.5rem 2rem;
+  padding: 6rem 2rem;
   border-radius: 12px;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .banner-principal h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   margin-bottom: 1.2rem;
+  font-weight: 700;
 }
 
 .banner-principal p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   max-width: 850px;
   margin: 0 auto 2.5rem auto;
+  opacity: 0.95;
 }
 
-/* --- BOTÕES --- */
+/* --- BOTÕES MODERNIZADOS --- */
 .botao-principal {
   background-color: #d4af37; /* Dourado */
   color: #1d3557; /* Azul */
   font-weight: 700;
-  padding: 0.8rem 2.2rem;
+  padding: 0.9rem 2.5rem;
   font-size: 1rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .botao-principal:hover {
   background-color: #e5c158;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* --- SEÇÃO CARDS (GRID) --- */
+.botao-principal:active {
+  transform: translateY(-1px);
+}
+
+/* --- CARDS DE PRODUTOS/AÇÕES (GRID CORRIGIDO) --- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .card-informativo {
   background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   border: 1px solid #eaeaea;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Faz o botão ou texto alinhar embaixo por igual */
 }
 
 .card-informativo:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .imagem-card {
   width: 100%;
-  height: 210px;
-  object-fit: cover;
+  height: 220px;
+  object-fit: cover; /* Impede a imagem de distorcer */
 }
 
 .card-texto {
-  padding: 1.5rem;
+  padding: 1.8rem;
+  flex-grow: 1; /* Garante que todos os cards fiquem com a mesma altura */
 }
 
 .card-texto h3 {
   color: #1d3557; /* Azul */
-  margin-bottom: 0.6rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
 }
 
-/* --- SEÇÃO USUÁRIOS / MEMBROS --- */
+.card-texto p {
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+/* --- SEÇÃO USUÁRIOS / MEMBROS (Mural Corrigido) --- */
 .membros-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .card-usuario {
   background: #ffffff;
   border-top: 5px solid #2d6a4f; /* Verde */
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 1.5rem 2.5rem 1.5rem;
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.card-usuario:hover {
+  transform: scale(1.02);
 }
 
 .foto-perfil {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #d4af37; /* Dourado */
-  margin-bottom: 1rem;
+  margin: 0 auto 1.2rem auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .card-usuario h3 {
   color: #1d3557;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .etiqueta-funcao {
@@ -204,19 +231,28 @@ h2 {
   color: #1b4332;
   font-size: 0.8rem;
   font-weight: 700;
-  padding: 0.25rem 1rem;
+  padding: 0.3rem 1.2rem;
   border-radius: 20px;
-  margin: 0.5rem 0 1.2rem 0;
+  margin: 0.6rem 0 1.2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* --- SEÇÃO CONTATO --- */
+.card-usuario p {
+  color: #555555;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* --- SEÇÃO CONTATO E FORMULÁRIO COMPLETO --- */
 .bloco-contato {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
-  background-color: #f8f9fa;
-  padding: 3rem;
+  background-color: #f8f9fa; /* Cinza claro para contraste */
+  padding: 3.5rem;
   border-radius: 12px;
+  border: 1px solid #eee;
 }
 
 .info-ficticia {
@@ -226,11 +262,17 @@ h2 {
 
 .info-ficticia h3 {
   color: #1b4332; /* Verde */
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 0.5rem;
+  display: inline-block;
 }
 
 .info-ficticia p {
-  margin-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: #444444;
 }
 
 .formulario-contato {
@@ -239,46 +281,54 @@ h2 {
 }
 
 .campo-item {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .campo-item label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #1d3557;
+  color: #1d3557; /* Azul */
+  font-size: 0.95rem;
 }
 
 .campo-item input, .campo-item textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.9rem;
   border: 1px solid #cccccc;
   border-radius: 6px;
   outline: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .campo-item input:focus, .campo-item textarea:focus {
-  border-color: #1b4332;
-  box-shadow: 0 0 5px rgba(27, 67, 50, 0.25);
+  border-color: #1b4332; /* Verde */
+  box-shadow: 0 0 6px rgba(27, 67, 50, 0.25);
 }
 
 /* --- RODAPÉ --- */
 footer {
-  background-color: #1d3557;
+  background-color: #1d3557; /* Azul */
   color: #ffffff;
   text-align: center;
-  padding: 2.5rem;
-  margin-top: 5rem;
-  border-top: 4px solid #1b4332;
+  padding: 2.5rem 2rem;
+  margin-top: 6rem;
+  border-top: 4px solid #1b4332; /* Verde */
+}
+
+footer p {
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .paleta-cores {
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
   font-size: 0.85rem;
+  opacity: 0.8;
 }
 
-.cor-v { color: #2d6a4f; font-weight: bold; }
-.cor-a { color: #3a86c8; font-weight: bold; }
-.cor-b { color: #ffffff; }
+.cor-v { color: #52b788; font-weight: bold; }
+.cor-a { color: #a8dadc; font-weight: bold; }
+.cor-b { color: #ffffff; font-weight: bold;}
 .cor-d { color: #d4af37; font-weight: bold; }
