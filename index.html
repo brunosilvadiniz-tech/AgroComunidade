@@ -1,0 +1,138 @@
+<header>
+  <div class="interface-container">
+    <div class="logo-agro">Agro<span>Forte</span></div>
+    <nav>
+      <ul>
+        <li><a onclick="mudarAba('home')" id="menu-home" class="active">Início</a></li>
+        <li><a onclick="mudarAba('sociedade')" id="menu-sociedade">Ações Sociais</a></li>
+        <li><a onclick="mudarAba('usuarios')" id="menu-usuarios">Membros</a></li>
+        <li><a onclick="mudarAba('contato')" id="menu-contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home" class="aba-conteudo active">
+  <section class="banner-principal">
+    <h1>O Campo Alimenta e Transforma a Sociedade</h1>
+    <p>Conectando a força da terra ao desenvolvimento social. O agronegócio gera empregos, promove a segurança alimentar e constrói um futuro sustentável para milhares de famílias.</p>
+    <button class="botao-principal" onclick="mudarAba('sociedade')">Conhecer Projetos</button>
+  </section>
+
+  <section class="cards-grid">
+    <div class="card-informativo">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" alt="Alimentos saudáveis colhidos" class="imagem-card">
+      <div class="card-texto">
+        <h3>Alimento para Todos</h3>
+        <p>Garantia de abastecimento seguro e distribuição de alimentos nutritivos para as zonas urbanas e vulneráveis.</p>
+      </div>
+    </div>
+    
+    <div class="card-informativo">
+      <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=500&q=80" alt="Trabalhador no campo técnico" class="imagem-card">
+      <div class="card-texto">
+        <h3>Inclusão Econômica</h3>
+        <p>Geração de emprego formal no interior do país, fixando famílias no campo com renda justa e dignidade.</p>
+      </div>
+    </div>
+
+    <div class="card-informativo">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=500&q=80" alt="Plantação verde brotando" class="imagem-card">
+      <div class="card-texto">
+        <h3>Futuro Sustentável</h3>
+        <p>Uso de biotecnologia e técnicas de plantio direto que preservam os biomas e protegem os recursos hídricos.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="sociedade" class="aba-conteudo">
+  <h2>Impacto na Sociedade</h2>
+  <p class="descricao-pagina">Como as iniciativas do agronegócio transformam a infraestrutura e a vida comunitária.</p>
+  
+  <div class="cards-grid">
+    <div class="card-informativo">
+      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=80" alt="Jovens estudando técnica agrícola" class="imagem-card">
+      <div class="card-texto">
+        <h3>Escolas Agrícolas</h3>
+        <p>Financiamento de centros educacionais que capacitam filhos de produtores rurais a operarem tecnologias modernas e drones de monitoramento.</p>
+      </div>
+    </div>
+
+    <div class="card-informativo">
+      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80" alt="Reunião de cooperativa agrícola" class="imagem-card">
+      <div class="card-texto">
+        <h3>Cooperativismo Forte</h3>
+        <p>União de pequenos produtores em redes colaborativas para garantir preço justo de venda e eliminação de intermediários abusivos.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main id="usuarios" class="aba-conteudo">
+  <h2>Nossa Comunidade</h2>
+  <p class="descricao-pagina">Conheça os usuários ativos na nossa rede de desenvolvimento social agrícola.</p>
+  
+  <div class="membros-grid">
+    <div class="card-usuario">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Foto de Mariana Silva" class="foto-perfil">
+      <h3>Mariana Silva</h3>
+      <span class="etiqueta-funcao">Agricultura Familiar</span>
+      <p>"Através da associação de produtores, hoje conseguimos destinar 40% da nossa colheita de hortaliças diretamente para a merenda escolar local."</p>
+    </div>
+
+    <div class="card-usuario">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Foto de Ricardo Santos" class="foto-perfil">
+      <h3>Ricardo Santos</h3>
+      <span class="etiqueta-funcao">Engenheiro Agrônomo</span>
+      <p>"Presto consultoria gratuita para pequenos sítios, aplicando técnicas de irrigação gota-a-gota para economizar água e reduzir custos."</p>
+    </div>
+
+    <div class="card-usuario">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Foto de Dra. Amanda Lima" class="foto-perfil">
+      <h3>Dra. Amanda Lima</h3>
+      <span class="etiqueta-funcao">Pesquisadora</span>
+      <p>"Trabalho no laboratório criando sementes mais resistentes à seca, garantindo a proteção contra quebras de safra em regiões áridas."</p>
+    </div>
+  </div>
+</main>
+
+<main id="contato" class="aba-conteudo">
+  <h2>Fale Conosco</h2>
+  <p class="descricao-pagina">Tem alguma proposta de projeto social ou dúvida? Entre em contato por nossos canais fictícios ou envie o formulário.</p>
+
+  <div class="bloco-contato">
+    <div class="info-ficticia">
+      <h3>Canais Diretos</h3>
+      <p><strong>📍 Endereço:</strong> Av. das Nações Verdes, nº 1200 - Maringá, PR</p>
+      <p><strong>📞 Telefone:</strong> (44) 5555-0199 (Fictício)</p>
+      <p><strong>✉️ E-mail:</strong> contato@agrofortesocial.com.br</p>
+      <p><strong>⏰ Expediente:</strong> Segunda a Sexta, das 08:00 às 17:00</p>
+    </div>
+    
+    <div class="formulario-contato">
+      <form id="meuFormulario" onsubmit="enviarDados(event)">
+        <div class="campo-item">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" required placeholder="Digite seu nome">
+        </div>
+        <div class="campo-item">
+          <label for="email">E-mail Corporativo/Pessoal</label>
+          <input type="email" id="email" required placeholder="seuemail@exemplo.com">
+        </div>
+        <div class="campo-item">
+          <label for="mensagem">Escreva sua Mensagem</label>
+          <textarea id="mensagem" rows="4" required placeholder="Como podemos somar forças?"></textarea>
+        </div>
+        <button type="submit" class="botao-principal">Enviar Dados</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 AgroForte - Alimentando Ideias, Cultivando Cidadania.</p>
+  <div class="paleta-cores">
+    <span class="cor-v">Verde</span> | <span class="cor-a">Azul</span> | <span class="cor-b">Branco</span> | <span class="cor-d">Dourado</span>
+  </div>
+</footer>
