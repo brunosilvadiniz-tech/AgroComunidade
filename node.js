@@ -1,3 +1,7 @@
+/**
+ * NAVEGAÇÃO ENTRE ABAS INTERATIVAS (SPA)
+ * Troca o conteúdo dinamicamente sem recarregar a visualização do CodePen.
+ */
 function mudarAba(idAlvo) {
   // 1. Localiza e oculta todas as páginas
   const todasAbas = document.querySelectorAll('.aba-conteudo');
@@ -11,9 +15,19 @@ function mudarAba(idAlvo) {
     item.classList.remove('active');
   });
 
-  // 3. Exibe a página clicada e adiciona destaque ao link correspondente
-  document.getElementById(idAlvo).classList.add('active');
-  document.getElementById('menu-' + idAlvo).classList.add('active');
+  // 3. Exibe a página clicada e adiciona destaque ao link correspondente (com checagem de segurança)
+  const abaAlvo = document.getElementById(idAlvo);
+  const menuAlvo = document.getElementById('menu-' + idAlvo);
+
+  if (abaAlvo) {
+    abaAlvo.classList.add('active');
+  } else {
+    console.error(Erro: A página com o ID "${idAlvo}" não foi encontrada no HTML.);
+  }
+
+  if (menuAlvo) {
+    menuAlvo.classList.add('active');
+  }
 
   // 4. Executa uma rolagem suave até o topo da tela
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -27,10 +41,22 @@ function enviarDados(event) {
   // Impede o comportamento padrão de atualização de página
   event.preventDefault(); 
   
-  // Resgata os dados imputados pelo usuário
-  const nomeCompleto = document.getElementById('nome').value;
-  const emailFornecido = document.getElementById('email').value;
+  // Resgata os elementos do HTML com segurança
+  const campoNome = document.getElementById('nome');
+  const campoEmail = document.getElementById('email');
+  const formulario = document.getElementById('meuFormulario');
 
-  // Limpa os dados preenchidos no formulário
-  document.getElementById('meuFormulario').reset();
+  // Verifica se os campos realmente existem antes de pegar o valor (.value)
+  if (campoNome && campoEmail) {
+    const nomeCompleto = campoNome.value;
+    const emailFornecido = campoEmail.value;
+
+    // Renderiza caixa de feedback customizada em tela
+    alert(Obrigado pelo contato, ${nomeCompleto}!\nSeus dados foram validados com sucesso.\nUma resposta simulada foi direcionada para o e-mail: ${emailFornecido}.);
+  }
+
+  // Limpa os dados preenchidos no formulário se ele existir
+  if (formulario) {
+    formulario.reset();
+  }
 }
