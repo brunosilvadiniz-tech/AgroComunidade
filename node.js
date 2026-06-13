@@ -1,4 +1,3 @@
-/
 function mudarAba(idAlvo) {
   // 1. Localiza e oculta todas as páginas
   const todasAbas = document.querySelectorAll('.aba-conteudo');
@@ -32,9 +31,6 @@ function enviarDados(event) {
   const nomeCompleto = document.getElementById('nome').value;
   const emailFornecido = document.getElementById('email').value;
 
-  // Renderiza caixa de feedback customizada em tela
-  alert(Obrigado pelo contato, ${nomeCompleto}!\nSeus dados foram validados com sucesso.\nUma resposta simulada foi direcionada para o e-mail: ${emailFornecido}.);
-  
   // Limpa os dados preenchidos no formulário
   document.getElementById('meuFormulario').reset();
 }
